@@ -1,0 +1,127 @@
+# BackEnd #
+#######################
+BackEnd/build
+BackEnd/dist
+BackEnd/tags
+BackEnd/composer.lock
+BackEnd/phpunit.xml
+BackEnd/vendor
+BackEnd/vendors
+BackEnd/composer.phar
+BackEnd/*.mo
+BackEnd/debug.log
+BackEnd/error.log
+BackEnd/.phpunit.result.cache
+
+# OS generated files #
+######################
+BackEnd/.DS_Store
+BackEnd/.DS_Store?
+BackEnd/._*
+BackEnd/.Spotlight-V100
+BackEnd/.Trashes
+BackEnd/Icon?
+BackEnd/ehthumbs.db
+BackEnd/Thumbs.db
+
+FrontEnd/.DS_Store
+FrontEnd/.DS_Store?
+FrontEnd/._*
+FrontEnd/.Spotlight-V100
+FrontEnd/.Trashes
+FrontEnd/Icon?
+FrontEnd/ehthumbs.db
+FrontEnd/Thumbs.db
+
+
+
+# Tool specific files #
+#######################
+BackEnd/# vim
+BackEnd/*~
+BackEnd/*.swp
+BackEnd/*.swo
+
+FrontEnd/# vim
+FrontEnd/*~
+FrontEnd/*.swp
+FrontEnd/*.swo
+
+
+# sublime text & textmate
+
+BackEnd/*.sublime-*
+BackEnd/*.stTheme.cache
+BackEnd/*.tmlanguage.cache
+BackEnd/*.tmPreferences.cache
+
+FrontEnd/*.sublime-*
+FrontEnd/*.stTheme.cache
+FrontEnd/*.tmlanguage.cache
+FrontEnd/*.tmPreferences.cache
+
+# Eclipse
+
+BackEnd/.settings/*
+BackEnd/.project
+BackEnd/.buildpath
+FrontEnd/.settings/*
+FrontEnd/.project
+FrontEnd/.buildpath
+
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+
+BackEnd/.idea/*
+FrontEnd/.idea/*
+
+# NetBeans
+
+BackEnd/nbproject/*
+FrontEnd/nbproject/*
+
+# Visual Studio Code
+
+BackEnd/.vscode
+FrontEnd/.vscode
+
+# FrontEnd #
+#######################
+
+FrontEnd/.DS_STORE
+FrontEnd/node_modules
+FrontEnd/scripts/flow/*/.flowconfig
+FrontEnd/.flowconfig
+FrontEnd/*~
+FrontEnd/*.pyc
+FrontEnd/.grunt
+FrontEnd/_SpecRunner.html
+FrontEnd/__benchmarks__
+FrontEnd/build/
+FrontEnd/remote-repo/
+FrontEnd/coverage/
+FrontEnd/.module-cache
+FrontEnd/fixtures/dom/public/react-dom.js
+FrontEnd/fixtures/dom/public/react.js
+FrontEnd/test/the-files-to-test.generated.js
+FrontEnd/*.log*
+FrontEnd/chrome-user-data
+FrontEnd/*.sublime-project
+FrontEnd/*.sublime-workspace
+FrontEnd/.idea
+FrontEnd/*.iml
+FrontEnd/.vscode
+FrontEnd/*.swp
+FrontEnd/*.swo
+
+FrontEnd/packages/react-devtools-core/dist
+FrontEnd/packages/react-devtools-extensions/chrome/build
+FrontEnd/packages/react-devtools-extensions/chrome/*.crx
+FrontEnd/packages/react-devtools-extensions/chrome/*.pem
+FrontEnd/packages/react-devtools-extensions/firefox/build
+FrontEnd/packages/react-devtools-extensions/firefox/*.xpi
+FrontEnd/packages/react-devtools-extensions/firefox/*.pem
+FrontEnd/packages/react-devtools-extensions/shared/build
+FrontEnd/packages/react-devtools-extensions/.tempUserDataDir
+FrontEnd/packages/react-devtools-inline/dist
+FrontEnd/packages/react-devtools-shell/dist
+FrontEnd/packages/react-devtools-scheduling-profiler/dist
