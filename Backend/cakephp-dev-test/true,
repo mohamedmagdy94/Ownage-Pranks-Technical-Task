@@ -1,0 +1,19 @@
+PHPUnit 6.5.14 by Sebastian Bergmann and contributors.
+
+F                                                                   1 / 1 (100%)
+
+Time: 141 ms, Memory: 12.00MB
+
+There was 1 failure:
+
+1) App\Test\TestCase\Controller\AppCategoriesControllerTest::testGetAllCategorieFirstPage
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+-''
++'NULL\n
++'
+
+FAILURES!
+Tests: 1, Assertions: 2, Failures: 1.

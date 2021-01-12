@@ -19,9 +19,10 @@ class AppPrankScriptsController extends AppController
      */
     public function getAllScripts()
     {
-        $page = $this->request->query['page'] ?? 1;
-        $limit = $this->request->query['limit'] ?? 10;
-        $slug = $this->request->query['slug'] ?? '';
+        $params = $this->request->getQuery();
+        $page = $params['page'] ?? 1;
+        $limit = $params['limit'] ?? 10;
+        $slug = $params['slug'] ?? '';
         $conditions = $slug === '' ? [] : ['slug'=>$slug];
         $appScripts = $this->paginate($this->AppPrankScripts,['limit'=>$limit,'page'=>$page,'conditions'=> $conditions]);
         $appScriptsCount = $this->AppPrankScripts->find()->count();

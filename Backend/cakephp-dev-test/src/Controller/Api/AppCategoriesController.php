@@ -19,9 +19,10 @@ class AppCategoriesController extends AppController
      */
     public function getAllCategories()
     {
-        $page = $this->request->query['page'] ?? 1;
-        $limit = $this->request->query['limit'] ?? 10;
-        $slug = $this->request->query['slug'] ?? '';
+        $params = $this->request->getQuery();
+        $page = $params['page'] ?? 1;
+        $limit = $params['limit'] ?? 10;
+        $slug = $params['slug'] ?? '';
         $conditions = $slug === '' ? [] : ['slug'=>$slug];
         $appCategories = $this->paginate($this->AppCategories,['limit'=>$limit,'page'=>$page,'conditions'=> $conditions]);
         $appCategoriesCount = $this->AppCategories->find()->count();

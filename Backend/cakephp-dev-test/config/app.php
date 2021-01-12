@@ -259,6 +259,14 @@ return [
      *   other RDBMS.
      */
     'Datasources' => [
+        'test' => [
+            'datasource' => 'Cake\Database\Driver\Mysql',
+            'host' => '127.0.0.1',
+            'persistent' => true,
+            'username' => 'root',
+            'password' => '',
+            'database' => 'owange_pranks'
+        ],
         'default' => [
             'className' => Connection::class,
             'driver' => Mysql::class,

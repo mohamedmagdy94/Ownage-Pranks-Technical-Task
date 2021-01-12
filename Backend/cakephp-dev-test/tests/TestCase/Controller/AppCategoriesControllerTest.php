@@ -14,62 +14,31 @@ class AppCategoriesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
-    /**
-     * Fixtures
-     *
-     * @var array
-     */
-    public $fixtures = [
-        'app.AppCategories',
-    ];
+    // /**
+    //  * Fixtures
+    //  *
+    //  * @var array
+    //  */
+    // public $fixtures = [
+    //     'app.AppCategories',
+    // ];
 
     /**
-     * Test index method
+     * Test getAllCategories method
      *
      * @return void
      */
-    public function testIndex()
+    public function testGetAllCategorieFirstPage()
     {
-        $this->markTestIncomplete('Not implemented yet.');
+        $this->configRequest([
+            'headers' => ['API-key' => 'DlKlimeUB8b12vbIIwDKtFR5Pk7aKDigjNsqRdSh']
+        ]);
+        $this->get('/api/categories');
+        $this->expectOutputString('');
+        $resultInJson = json_decode($this->_response);
+        $dataCount = count($resultInJson->data);
+        $this->assertTrue($dataCount == 10);
     }
 
-    /**
-     * Test view method
-     *
-     * @return void
-     */
-    public function testView()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 
-    /**
-     * Test add method
-     *
-     * @return void
-     */
-    public function testAdd()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test edit method
-     *
-     * @return void
-     */
-    public function testEdit()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test delete method
-     *
-     * @return void
-     */
-    public function testDelete()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
 }

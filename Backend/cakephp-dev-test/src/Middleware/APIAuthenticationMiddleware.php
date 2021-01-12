@@ -19,7 +19,7 @@ class APIAuthenticationMiddleware
      */
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, $next)
     {
-        $apiKey = $request->header('API_KEY');
+        $apiKey = $request->getHeaderLine('API-KEY');
         if($apiKey === constant("API_KEY")){
             return $next($request, $response);
         }else{
