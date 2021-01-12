@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "03a3d5c3-31db-421f-90e8-f4e009c92331",
+		"name": "Owange Pranks Task API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "API-KEY",
+						"value": "DlKlimeUB8b12vbIIwDKtFR5Pk7aKDigjNsqRdSh",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_url}}/categories?page=1&limit=10&slug =view-all-pranks",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "slug ",
+							"value": "view-all-pranks"
+						}
+					]
+				},
+				"description": "This request for getting categories pagintated and filtered by slug"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Scripts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "API-KEY",
+						"value": "DlKlimeUB8b12vbIIwDKtFR5Pk7aKDigjNsqRdSh",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_url}}/scripts?page=1&limit=10&slug =view-all-pranks",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"scripts"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Optional if you didn't pass it,default is 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "Optional if you didn't pass it,default is 10"
+						},
+						{
+							"key": "slug ",
+							"value": "view-all-pranks",
+							"description": "Optional if you didn't pass it will get categories with no filter"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
