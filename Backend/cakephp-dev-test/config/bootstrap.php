@@ -201,3 +201,6 @@ Type::build('timestamp')
 //Inflector::rules('irregular', ['red' => 'redlings']);
 //Inflector::rules('uninflected', ['dontinflectme']);
 //Inflector::rules('transliteration', ['/å/' => 'aa']);
+
+//Constants
+define('API_KEY', 'DlKlimeUB8b12vbIIwDKtFR5Pk7aKDigjNsqRdSh');
