@@ -91,6 +91,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->fallbacks(DashedRoute::class);
 
     $routes->get('/categories', ['controller' => 'AppCategories', 'action' => 'getAllCategories']);
+    $routes->get('/scripts', ['controller' => 'AppPrankScriptsController', 'action' => 'getAllScripts']);
 
 });
 
