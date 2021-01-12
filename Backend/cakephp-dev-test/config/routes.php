@@ -17,6 +17,8 @@
  * @link          https://cakephp.org CakePHP(tm) Project
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
+
+use App\Middleware\APIAuthenticationMiddleware;
 use Cake\Http\Middleware\CsrfProtectionMiddleware;
 use Cake\Routing\RouteBuilder;
 use Cake\Routing\Router;
@@ -90,6 +92,8 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->fallbacks(DashedRoute::class);
     Router::prefix('api', function (RouteBuilder $routes) {
+        $routes->registerMiddleware('APIAuthenticationMiddleware', new APIAuthenticationMiddleware());
+        $routes->applyMiddleware('APIAuthenticationMiddleware');
         $routes->get('/categories', ['controller' => 'AppCategories', 'action' => 'getAllCategories']);
         $routes->get('/scripts', ['controller' => 'AppPrankScripts', 'action' => 'getAllScripts']);
         $routes->fallbacks(DashedRoute::class);
