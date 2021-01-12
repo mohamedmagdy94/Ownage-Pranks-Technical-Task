@@ -1,6 +1,10 @@
-@import "../../core/style/variables";
+@import "../../core/style/imports";
 
 .App-header {
   background-color: $backgroundColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-size: calc(10px + 2vmin);
 }
