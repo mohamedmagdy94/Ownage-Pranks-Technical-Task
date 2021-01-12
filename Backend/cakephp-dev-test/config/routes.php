@@ -89,9 +89,13 @@ Router::scope('/', function (RouteBuilder $routes) {
      * routes you want in your application.
      */
     $routes->fallbacks(DashedRoute::class);
+    Router::prefix('api', function (RouteBuilder $routes) {
+        $routes->get('/categories', ['controller' => 'AppCategories', 'action' => 'getAllCategories']);
+        $routes->get('/scripts', ['controller' => 'AppPrankScripts', 'action' => 'getAllScripts']);
+        $routes->fallbacks(DashedRoute::class);
+    });
 
-    $routes->get('/categories', ['controller' => 'AppCategories', 'action' => 'getAllCategories']);
-    $routes->get('/scripts', ['controller' => 'AppPrankScripts', 'action' => 'getAllScripts']);
+
 
 });
 
