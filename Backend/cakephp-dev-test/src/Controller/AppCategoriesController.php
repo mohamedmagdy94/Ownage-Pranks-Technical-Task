@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Model\Behavior\Page;
 
 /**
  * AppCategories Controller
@@ -18,9 +19,16 @@ class AppCategoriesController extends AppController
      */
     public function getAllCategories()
     {
-        $appCategories = $this->paginate($this->AppCategories);
+        $page = $this->request->query['page'] ?? 1;
+        $limit = $this->request->query['limit'] ?? 10;
+        $slug = $this->request->query['slug'] ?? '';
+        $conditions = $slug === '' ? [] : ['slug'=>$slug];
+        $appCategories = $this->paginate($this->AppCategories,['limit'=>$limit,'page'=>$page,'conditions'=> $conditions]);
+        $appCategoriesCount = $this->AppCategories->find()->count();
+        $page = new Page($appCategories,$appCategoriesCount,$page,$limit);
+        $this->set(['my_response' => $page,'_serialize' => 'my_response']);
+        $this->RequestHandler->renderAs($this, 'json');
 
-        $this->set(compact('appCategories'));
     }
 
 
