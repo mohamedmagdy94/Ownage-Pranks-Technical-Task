@@ -88,9 +88,11 @@ FrontEnd/.vscode
 #######################
 
 FrontEnd/.DS_STORE
+FrontEnd/.DS_Store
 FrontEnd/node_modules
 FrontEnd/scripts/flow/*/.flowconfig
 FrontEnd/.flowconfig
+FrontEnd/.eslintcache
 FrontEnd/*~
 FrontEnd/*.pyc
 FrontEnd/.grunt
