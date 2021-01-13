@@ -6,7 +6,7 @@ import {Navbar, NavbarBrand} from "reactstrap";
 class Header extends React.Component {
     render() {
         return (
-            <Navbar color="dark" dark>
+            <Navbar color="dark" dark className="row justify-content-center">
                 <NavbarBrand href="/" className="mx-auto"><img src={logo} className="App-logo" alt="logo"/></NavbarBrand>
             </Navbar>
         );

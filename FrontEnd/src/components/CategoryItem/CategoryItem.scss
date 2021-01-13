@@ -1,0 +1,5 @@
+@import "../../core/style/imports";
+
+.categoryListItem .card:hover {
+  background-color: $secondary !important;
+}
