@@ -2,12 +2,15 @@ import './CategoryList.scss';
 import * as React from "react";
 import {Col, Row} from "reactstrap";
 import CategoryItem from "../CategoryItem/CategoryItem";
+import {withRouter} from "react-router-dom";
 
 class CategoryList extends React.Component {
     constructor(props) {
         super(props);
+    }
 
-        this.state = {
+    render() {
+        let categories = {
             viewAllPranks: {
                 "id": 1,
                 "ext_id": "59be498733978d0018249161",
@@ -45,20 +48,17 @@ class CategoryList extends React.Component {
                 "synced": "2020-07-01 06:52:39"
             }
         };
-    }
-
-    render() {
         return (
             <Row className="h-100">
                 <Row className="align-content-center mx-auto w-100">
                     <Col md={4}>
-                        <CategoryItem category={this.state.viewAllPranks}/>
+                        <CategoryItem category={categories.viewAllPranks}/>
                     </Col>
                     <Col md={4}>
-                        <CategoryItem category={this.state.newPranks}/>
+                        <CategoryItem category={categories.newPranks}/>
                     </Col>
                     <Col md={4}>
-                        <CategoryItem category={this.state.foodRestaurantsPranks}/>
+                        <CategoryItem category={categories.foodRestaurantsPranks}/>
                     </Col>
                 </Row>
             </Row>
@@ -66,4 +66,4 @@ class CategoryList extends React.Component {
     }
 }
 
-export default CategoryList;
+export default withRouter(CategoryList);
