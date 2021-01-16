@@ -1,11 +1,20 @@
 import './IdeasList.scss';
 import * as React from "react";
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import { connect } from "react-redux";
+import {Button, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
 import {withRouter} from "react-router-dom";
+import {compose} from "redux";
+import { fetchCategoryIdeas } from "../../actions";
+import IdeasItem from "../IdeasItem/IdeasItem";
+import IdeasPagination from "../IdeasPagination/IdeasPagination";
 
 class IdeasList extends React.Component {
     constructor(props) {
         super(props);
+    }
+
+    componentDidMount() {
+        this.props.fetchCategoryIdeas(this.props.category.slug);
     }
 
     toggle = () => {
@@ -13,22 +22,39 @@ class IdeasList extends React.Component {
     };
 
     render() {
+        let ideasListMap = '';
+        let pagination = '';
+        let data = this.props.data;
+        if (!!data.data) {
+            ideasListMap = data.data.map((idea) =>
+                <IdeasItem idea={idea} key={idea.id}/>
+            );
+            if (data.pagesCount > 1) {
+                pagination = <IdeasPagination size={data.pagesCount} currentPage={data.currentPage}/>;
+            }
+        }
         return (
-            <Modal isOpen={true} toggle={this.toggle}>
+            <Modal isOpen={true} toggle={this.toggle} className='modal-dialog-scrollable modal-lg'>
                 <ModalHeader toggle={this.toggle}>{this.props.category.name}</ModalHeader>
                 <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                    <Row>
+                        {ideasListMap}
+                    </Row>
                 </ModalBody>
                 <ModalFooter>
+                    {pagination}
                     <Button color="danger" onClick={this.toggle}>Close</Button>
                 </ModalFooter>
             </Modal>
         );
     }
 }
-
-export default withRouter(IdeasList);
+const mapStateToProps = ({ data = {} }) => ({
+    data
+});
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {
+        fetchCategoryIdeas
+    })
+)(IdeasList);
