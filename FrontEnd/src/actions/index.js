@@ -2,7 +2,7 @@ import axios from "axios";
 import {SET_CATEGORIES_IDEAS, SET_CATEGORY} from "./types";
 
 const BASE_URL = 'http://pranks.local/api';
-// axios.defaults.headers.common['API-KEY'] = 'DlKlimeUB8b12vbIIwDKtFR5Pk7aKDigjNsqRdSh' // for all requests
+axios.defaults.headers.common['API-KEY'] = 'DlKlimeUB8b12vbIIwDKtFR5Pk7aKDigjNsqRdSh' // for all requests
 
 export function fetchCategory(categorySlug) {
     return function(dispatch) {
