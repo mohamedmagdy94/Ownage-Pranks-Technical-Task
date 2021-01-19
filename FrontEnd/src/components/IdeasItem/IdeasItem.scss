@@ -1,1 +1,5 @@
 @import "../../core/style/imports";
+
+.ideaListItem .card:hover {
+  background-color: $secondary !important;
+}

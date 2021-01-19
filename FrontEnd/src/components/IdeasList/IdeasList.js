@@ -1,12 +1,21 @@
 import './IdeasList.scss';
 import * as React from "react";
 import { connect } from "react-redux";
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader, Row} from "reactstrap";
+import {
+    Button, Col,
+    Modal,
+    ModalBody,
+    ModalFooter,
+    ModalHeader,
+    Pagination,
+    PaginationItem,
+    PaginationLink,
+    Row
+} from "reactstrap";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import { fetchCategoryIdeas } from "../../actions";
 import IdeasItem from "../IdeasItem/IdeasItem";
-import IdeasPagination from "../IdeasPagination/IdeasPagination";
 
 class IdeasList extends React.Component {
     constructor(props) {
@@ -21,17 +30,30 @@ class IdeasList extends React.Component {
         this.props.history.goBack();
     };
 
+    setPage = (pageNumber) => {
+        if (this.props.data.currentPage != pageNumber)
+            this.props.fetchCategoryIdeas(this.props.category.slug, {page: pageNumber});
+    }
+
     render() {
         let ideasListMap = '';
-        let pagination = '';
+        let pageNumbers = [];
         let data = this.props.data;
+        let paginationItems = '';
         if (!!data.data) {
             ideasListMap = data.data.map((idea) =>
                 <IdeasItem idea={idea} key={idea.id}/>
             );
-            if (data.pagesCount > 1) {
-                pagination = <IdeasPagination size={data.pagesCount} currentPage={data.currentPage}/>;
+            for (let i = 0; i < data.pagesCount; i++) {
+                pageNumbers.push(i + 1);
             }
+            paginationItems = pageNumbers.map((number) =>
+                <PaginationItem active={number == data.currentPage}>
+                    <PaginationLink onClick={() => this.setPage(number)}>
+                        {number}
+                    </PaginationLink>
+                </PaginationItem>
+            );
         }
         return (
             <Modal isOpen={true} toggle={this.toggle} className='modal-dialog-scrollable modal-lg'>
@@ -42,7 +64,11 @@ class IdeasList extends React.Component {
                     </Row>
                 </ModalBody>
                 <ModalFooter>
-                    {pagination}
+                    <Col className='pl-0'>
+                        <Pagination aria-label="Page navigation example">
+                            {paginationItems}
+                        </Pagination>
+                    </Col>
                     <Button color="danger" onClick={this.toggle}>Close</Button>
                 </ModalFooter>
             </Modal>

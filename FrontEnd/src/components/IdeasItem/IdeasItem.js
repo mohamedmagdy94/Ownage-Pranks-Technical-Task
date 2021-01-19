@@ -5,7 +5,7 @@ import {Card, CardBody, CardImg, CardTitle, Col} from "reactstrap";
 class IdeasItem extends React.Component {
     render() {
         return (
-            <Col md={6} className='mb-2'>
+            <Col md={6} className='ideaListItem mb-2'>
                 <Card className="rounded bg-primary">
                     <CardImg top width="100%" className="bg-white" src={this.props.idea.img_url}
                              alt={this.props.idea.title}/>
