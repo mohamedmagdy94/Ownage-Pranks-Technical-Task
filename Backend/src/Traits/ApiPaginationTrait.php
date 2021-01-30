@@ -8,6 +8,7 @@ trait ApiPaginationTrait
 {
     function ApiPaginate($modelName, $settings)
     {
+        $this->response->header('Access-Control-Allow-Origin', '*');
         $pageData = $this->paginate($modelName, $settings);
         $pagingParams = $this->Paginator->getPagingParams()[$modelName];
         $pageResponse = new PageResponse($pageData, $pagingParams);
