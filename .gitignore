@@ -12,6 +12,7 @@ BackEnd/*.mo
 BackEnd/debug.log
 BackEnd/error.log
 BackEnd/.phpunit.result.cache
+BackEnd/.github
 
 # OS generated files #
 ######################
