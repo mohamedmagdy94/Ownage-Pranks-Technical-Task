@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "8507fe9f-d72e-4a3f-af90-d0d35d1ec403",
+		"name": "Owange Pranks Task API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/categories?page=1&limit=10",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"categories"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "slug",
+							"value": "view-all-pranks",
+							"disabled": true
+						}
+					]
+				},
+				"description": "This request for getting categories pagintated and filtered by slug"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Scripts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server_url}}/scripts?page=1&limit=10&slug=new-prank-calls",
+					"host": [
+						"{{server_url}}"
+					],
+					"path": [
+						"scripts"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Optional if you didn't pass it,default is 1"
+						},
+						{
+							"key": "limit",
+							"value": "10",
+							"description": "Optional if you didn't pass it,default is 10"
+						},
+						{
+							"key": "slug",
+							"value": "new-prank-calls",
+							"description": "Optional if you didn't pass it will get categories with no filter"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server_url",
+			"value": ""
+		}
+	]
+}
