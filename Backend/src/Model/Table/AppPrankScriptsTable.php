@@ -165,4 +165,15 @@ class AppPrankScriptsTable extends Table
 
         return $rules;
     }
+
+    public function findAppCategories(\Cake\ORM\Query $query, array $options)
+    {
+        $query
+            ->matching('AppCategories', function(\Cake\ORM\Query $q) use ($options) {
+                return $q->where([
+                    'AppCategories.slug' => $options['slug']
+                ]);
+            });
+        return $query;
+    }
 }

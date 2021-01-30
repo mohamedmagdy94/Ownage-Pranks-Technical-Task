@@ -17,11 +17,11 @@ namespace App\Controller;
 
 use App\Traits\ApiPaginationTrait;
 
-class AppCategoriesController extends AppController
+class AppPrankScriptsController extends AppController
 {
     use ApiPaginationTrait;
 
-    public function getCategories()
+    public function getScripts()
     {
         $params = $this->request->getQuery();
         $settings = [
@@ -30,8 +30,8 @@ class AppCategoriesController extends AppController
             'conditions' => []
         ];
         if (isset($params['slug'])) {
-            $settings['conditions']['slug'] = $params['slug'];
+            $settings['finder'] = ['AppCategories' => ['slug' => $params['slug']]];
         }
-        $this->ApiPaginate('AppCategories', $settings);
+        $this->ApiPaginate('AppPrankScripts', $settings);
     }
 }
