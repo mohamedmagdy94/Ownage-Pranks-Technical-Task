@@ -102,3 +102,8 @@ Router::scope('/', function (RouteBuilder $routes) {
  * });
  * ```
  */
+
+Router::scope('/api', function (RouteBuilder $routes) {
+    $routes->get('/categories', ['controller' => 'AppCategories', 'action' => 'getCategories']);
+    $routes->get('/scripts', ['controller' => 'AppPrankScripts', 'action' => 'getScripts']);
+});
